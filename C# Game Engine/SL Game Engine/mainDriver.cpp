@@ -23,6 +23,11 @@ _sl_State* EaselGame::initialState(int inCores)
     return result;
 }
 
+void EaselGame::slTerminate()
+{
+	sl_done();
+}
+
 _sl_State* EaselGame::newState(bool clicked, int x, int y, char* keys, _sl_State *inputState, int inCores)
 {
 	_sl_State *result = new _sl_State();

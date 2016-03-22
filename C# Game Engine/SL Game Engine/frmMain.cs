@@ -294,6 +294,8 @@ namespace SL_Game_Engine
                         Thread.SpinWait(1);
                     }
                 }
+                e.Cancel = true;
+                return;
             }
             catch (Exception exc)
             {
@@ -321,6 +323,11 @@ namespace SL_Game_Engine
             {
 
             }
+        }
+
+        private void bgwEngine_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            EaselDLL.slTerminate();
         }
 
         #endregion
@@ -381,5 +388,16 @@ namespace SL_Game_Engine
         }
 
         #endregion
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bgwEngine.CancelAsync();
+
+            while (bgwEngine.IsBusy)
+            {
+                Thread.Sleep(100);
+                Application.DoEvents();
+            }
+        }
     }
 }

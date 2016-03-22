@@ -48,5 +48,7 @@ namespace EaselDLL
 			static EASELDLL_API int getGraphicLocation(Sequence<_sl_Image>*, int, char*);
 
 			static EASELDLL_API void freeImages(Sequence<_sl_Image>*);
+
+			static EASELDLL_API void EaselGame::slTerminate();
     };
 }}

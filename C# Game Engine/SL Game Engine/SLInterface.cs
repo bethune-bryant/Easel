@@ -26,6 +26,9 @@ namespace SL_Game_Engine
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, EntryPoint = "?initialState@EaselGame@EaselDLL@@SAPEAU_sl_State_0@@H@Z")]
         public static extern IntPtr InitialState(int cores);
 
+        [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, EntryPoint = "?slTerminate@EaselGame@EaselDLL@@SAXXZ")]
+        public static extern void slTerminate();
+
         [DllImport(DLL_NAME, CallingConvention = CallingConvention.Cdecl, EntryPoint = "?newState@EaselGame@EaselDLL@@SAPEAU_sl_State_0@@_NHHPEADPEAU3@H@Z")]
         public static extern IntPtr NewState(bool clicked, int x, int y, StringBuilder keys, IntPtr inputState, int cores);
 
@@ -459,7 +462,7 @@ namespace SL_Game_Engine
         {
             string mainFile = Path.Combine(Path.GetTempPath(), "main");
 
-            string slcParametrs = "-c \"" + sequencelFile + "\" -f \"initialState()\" -f \"images(State(0))\" -f \"newState(Input(0), State(0))\" -f \"sounds(Input(0), State(0))\" -o \"" + mainFile + "\" --parallel";
+            string slcParametrs = "-c \"" + sequencelFile + "\" -f \"initialState()\" -f \"images(State(0))\" -f \"newState(Input(0), State(0))\" -f \"sounds(Input(0), State(0))\" -o \"" + mainFile + "\" --rtc=0";
 
             string mainDriverFile = Path.ChangeExtension(Path.GetTempFileName(), "cpp");
             File.WriteAllText(mainDriverFile, GetResourceTextFile("mainDriver.cpp"));

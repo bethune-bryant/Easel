@@ -48,6 +48,7 @@
             this.bgwEngine.WorkerSupportsCancellation = true;
             this.bgwEngine.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwEngine_DoWork);
             this.bgwEngine.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwEngine_ProgressChanged);
+            this.bgwEngine.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwEngine_RunWorkerCompleted);
             // 
             // timerFrameRate
             // 
@@ -113,6 +114,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SequenceL Game Engine";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Shown += new System.EventHandler(this.frmMain_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
