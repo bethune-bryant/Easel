@@ -1,7 +1,0 @@
-eclipse.preferences.version=1
-{ADDITIONAL_COMPILER_ARGS}=
-{FILE_NAME}=newStructs.sl
-{FUNCTION_NAME_WITH_VALUES}=initialState(); images(State(0)); newState(Input(0), State(0)); sounds(Input(0), State(0))
-{OPENCL_FLAG}=false
-{OUTPUT_FILE}=main
-{PARALLE_FLAG}=true
