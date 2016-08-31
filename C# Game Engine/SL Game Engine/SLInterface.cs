@@ -462,7 +462,8 @@ namespace SL_Game_Engine
         {
             string mainFile = Path.Combine(Path.GetTempPath(), "main");
 
-            string slcParametrs = "-c \"" + sequencelFile + "\" -f \"initialState()\" -f \"images(State(0))\" -f \"newState(Input(0), State(0))\" -f \"sounds(Input(0), State(0))\" -o \"" + mainFile + "\" --rtc=0";
+            //string slcParametrs = "-c \"" + sequencelFile + "\" -f \"initialState()\" -f \"images(State(0))\" -f \"newState(Input(0), State(0))\" -f \"sounds(Input(0), State(0))\" -o \"" + mainFile + "\" --debug --parallel --no_debug_print --rtc=0";
+            string slcParametrs = "-c \"" + sequencelFile + "\" -f \"initialState()\" -f \"images(State(0))\" -f \"newState(Input(0), State(0))\" -f \"sounds(Input(0), State(0))\" -o \"" + mainFile + "\" --parallel --no_debug_print --rtc=0";
 
             string mainDriverFile = Path.ChangeExtension(Path.GetTempFileName(), "cpp");
             File.WriteAllText(mainDriverFile, GetResourceTextFile("mainDriver.cpp"));

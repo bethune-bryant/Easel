@@ -31,6 +31,10 @@ void EaselGame::slTerminate()
 _sl_State* EaselGame::newState(bool clicked, int x, int y, char* keys, _sl_State *inputState, int inCores)
 {
 	_sl_State *result = new _sl_State();
+
+	try
+	{
+
 	_sl_Input inputInp;
 
 	inputInp.iClick = new _sl_Click();
@@ -49,12 +53,36 @@ _sl_State* EaselGame::newState(bool clicked, int x, int y, char* keys, _sl_State
 	inputState->_delete_data(true);
 	free(inputState);
 
+	
+    }
+
+    catch (exception& e)
+    {
+        cout << e.what() << endl;
+    }
+    catch(int e)
+    {
+        cout << "Unexpected Exception: " << e << endl;
+    }
+    catch(const char *s)
+    {
+        cout << "caught an exception:" << s << endl;
+    }
+    catch (...)
+    {
+        cout << "Unexpected Exception!" << endl;
+    }
+
 	return result;
 }
 
 Sequence<Sequence<char> >* EaselGame::sounds(bool clicked, int x, int y, char* keys, _sl_State *inputState, int inCores)
 {
 	Sequence<Sequence<char> > *result = new Sequence<Sequence<char> >();
+
+	try
+	{
+
 	_sl_Input inputInp;
 
 	inputInp.iClick = new _sl_Click();
@@ -69,6 +97,26 @@ Sequence<Sequence<char> >* EaselGame::sounds(bool clicked, int x, int y, char* k
 	inputInp.keys = keySeq;
 
 	sl_sounds(inputInp, *inputState, inCores, *result);
+
+	
+    }
+
+    catch (exception& e)
+    {
+        cout << e.what() << endl;
+    }
+    catch(int e)
+    {
+        cout << "Unexpected Exception: " << e << endl;
+    }
+    catch(const char *s)
+    {
+        cout << "caught an exception:" << s << endl;
+    }
+    catch (...)
+    {
+        cout << "Unexpected Exception!" << endl;
+    }
 
 	return result;
 }
@@ -91,7 +139,30 @@ Sequence<_sl_Image>* EaselGame::images(_sl_State *state, int inCores)
 {
 	Sequence<_sl_Image> *result = new Sequence<_sl_Image>();
 
+	try
+	{
+
 	sl_images(*state, inCores, *result);
+
+	
+    }
+
+    catch (exception& e)
+    {
+        cout << e.what() << endl;
+    }
+    catch(int e)
+    {
+        cout << "Unexpected Exception: " << e << endl;
+    }
+    catch(const char *s)
+    {
+        cout << "caught an exception:" << s << endl;
+    }
+    catch (...)
+    {
+        cout << "Unexpected Exception!" << endl;
+    }
 
 	return result;
 }
